@@ -30,7 +30,7 @@ $ tree .
 
 $ docker run -i --rm --cap-add=SYS_ADMIN \
     -v `pwd`:/mmdc \
-    luisfarzati/mmdc \
+    jfyne/mmdc \
          -i ./diagrams/workflow.mmd \
          -o ./output/workflow.png \
          -t forest

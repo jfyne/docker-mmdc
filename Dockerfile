@@ -9,9 +9,9 @@ RUN chmod +x /usr/local/bin/dumb-init
 # Install puppeteer so it's available in the container.
 RUN yarn add --production puppeteer mermaid.cli
 
-# Run everything after as non-privileged user.
-USER pptruser
+#USER pptruser
+ADD pconf.json /pconf.json
 
 WORKDIR /mmdc
 
-ENTRYPOINT ["dumb-init", "--", "/node_modules/.bin/mmdc"]
+ENTRYPOINT ["dumb-init", "--", "/node_modules/.bin/mmdc", "-p", "/pconf.json"]
